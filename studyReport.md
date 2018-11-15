@@ -4,7 +4,7 @@
 ## 進め方
 サイトの制作を一通りこなし、学習する。  
 一度学習したことが多くなるかと思うので、新出のテクニックだけまとめ、  
-以下で完成したものが見られるようにする。
+以下で完成したものが見られるようにする。  
 https://oratake.github.io/dotinstall_making_website/index.html  
 
 以下は記述したhtmlとcss  
