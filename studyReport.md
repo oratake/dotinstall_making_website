@@ -18,10 +18,13 @@ https://github.com/oratake/dotinstall_making_website/blob/master/css/styles.css
 とりあえずCSSの後につくもので同じもの、程度の認識だったものの、  
 ちゃんと違いがあった。  
 - 模擬要素  
-  **要素内の一部**に対してスタイルを適用する。  
+  **要素内の一部** に対してスタイルを適用する。  
   CSS3では以下がある  
-  `::before`,`::after`,`::first-letter`,`::first-line`
+  `::before`,`::after`,`::first-letter`,`::first-line`  
+  コロンが二重になっているのは、CSS3になったときに模擬要素、模擬クラスを明確に区別するためとのこと。
 - 模擬クラス
+  **要素内全体** に対してスタイルを適用する。  
+  かなり数は多い。`:hover`,`:nth-child()`などもそう。
 
 参考：[【CSS】擬似要素と擬似クラスの違いの覚書 | niwaka-web](https://niwaka-web.com/css_pseudo_different/)
 
@@ -64,5 +67,15 @@ ex) `<i class="fas fa-external-link-alt"></i>`
 コメントで`/* header */`などと入れておき、場所が限定されるスタイルは何がどこにあるかわかりやすいようにする。
 
 ### 模擬要素でサブタイトルをつくる
-模擬要素
-
+模擬要素を用いて付帯するデザインをつくる方法  
+```html
+<h1 data-subtitle="- Features -">Dotinstall Paneの特徴</h1>
+```
+```css
+h1 { /* ヘッダ内に適用 */ }
+h1::after { /* h1の直後に */
+  content: attr(data-subtitle); /* attrで属性の値を読み込む */
+  display: block; /* ブロック要素にしておく */
+  /* その他、サブタイトルのデザイン */
+}
+```
