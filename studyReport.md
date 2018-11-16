@@ -13,6 +13,18 @@ https://github.com/oratake/dotinstall_making_website/blob/master/css/styles.css
 
 また、なるべく弊社での書き方で書くようにした。  
 
+## 曖昧だったところまとめ
+### 模擬要素・模擬クラス
+とりあえずCSSの後につくもので同じもの、程度の認識だったものの、  
+ちゃんと違いがあった。  
+- 模擬要素  
+  **要素内の一部**に対してスタイルを適用する。  
+  CSS3では以下がある  
+  `::before`,`::after`,`::first-letter`,`::first-line`
+- 模擬クラス
+
+参考：[【CSS】擬似要素と擬似クラスの違いの覚書 | niwaka-web](https://niwaka-web.com/css_pseudo_different/)
+
 ## 使われていたテクニックなど
 ### favicon
 `<link rel="icon" href="./favicon.ico">`  
@@ -21,3 +33,36 @@ faviconはタブやウィンドウにtitleとともに載ったり、ブック�
 
 iOSとAndroid(chormeのみ)で使われるapple-touch-icon.pngというものもある。  
 これは、ブックマークをホーム画面に配置した際にアイコンになる。  
+
+### 画像の絶対配置(position:)
+親要素に対して`position: relative;`をあて、  
+絶対配置したい画像に`position: absolute;`をあてつつ、  
+`top:`,`right:`,`bottom:`,`left:`などで位置を調整。  
+```html
+<div class="container">
+  <img src="./path/of/image.png" alt="なにかしらの画像">
+</div><!-- /container -->
+```
+```css
+.container { position: relative; }
+.container img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+```
+
+### Font Awesome
+web上でfreeで使えるアイコン群がある。(ex. [Font Awesome](https://fontawesome.com/))  
+1. 公式からhead内に入れるlinkをもらってくる
+ex) `<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="省略" crossorigin="anonymous">`
+2. 使いたいアイコンを探して、ページ内から`<i>`から始まるタグをコピーしてくる。  
+ex) `<i class="fas fa-external-link-alt"></i>`
+3. 貼り付けて使う。  
+
+### cssの整理
+コメントで`/* header */`などと入れておき、場所が限定されるスタイルは何がどこにあるかわかりやすいようにする。
+
+### 模擬要素でサブタイトルをつくる
+模擬要素
+
