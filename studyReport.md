@@ -5,7 +5,7 @@
 サイトの制作を一通りこなし、学習する。  
 一度学習したことが多くなるかと思うので、新出のテクニックだけまとめ、  
 以下で完成したものが見られるようにする。  
-https://oratake.github.io/dotinstall_making_website/index.html  
+https://oratake.github.io/dotinstall_making_website/  
 
 以下は記述したhtmlとcss  
 https://github.com/oratake/dotinstall_making_website/blob/master/index.html  
@@ -79,3 +79,31 @@ h1::after { /* h1の直後に */
   /* その他、サブタイトルのデザイン */
 }
 ```
+
+### 模擬クラスを使ったスタイリング
+**○ 画像を並べるとき、左右交互に振りたい**
+`div.img*3>img`のとき  
+```css
+.img:nth-of-type(odd) { float: left; }
+.img:nth-of-type(even) { float: right; }
+```
+odd(奇数)は左、even(偶数)は右などできる。  
+`:nth-of-type()`の()内には(an+b)の形で数式を当てはめることも可能。  
+
+### flexboxでの位置合わせ
+3枚のカードを横並べにする場合  
+`div.flex>div.card*3`のとき  
+```css
+.flex {
+  display: flex; /* flex要素として指定 */
+  justify-content: space-between;
+}
+```
+
+---
+以下作成したページ  
+https://oratake.github.io/dotinstall_making_website/
+
+記述したhtml, css  
+https://github.com/oratake/dotinstall_making_website/blob/master/index.html  
+https://github.com/oratake/dotinstall_making_website/blob/master/css/styles.css
